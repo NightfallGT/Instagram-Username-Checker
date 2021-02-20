@@ -1,4 +1,4 @@
-# Instagram-Rare=Username-Checker
+# Instagram-Rare-Username-Checker
 A simple asynchronous tool that checks if an Instagram username is taken or not
 
 ## About
