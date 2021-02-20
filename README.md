@@ -21,7 +21,7 @@ the installation.
 
 2. Type ```pip install aiohttp``` in cmd
 
-3.  Add the usernames you want to check in ```usernames.txt```.
+3.  Add the usernames you want to check in ```usernames.txt```. Do not put a lot of usernames because you can get rate limited and it can become more inaccurate. It is recommended to check around 500 usernames then wait 24 hours before you can check again.  
 
 4.  Make sure you are in the same directory as the folder you downloaded it in.  Type
 ```python main.py``` in cmd to run
