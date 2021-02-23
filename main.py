@@ -17,20 +17,27 @@ class Checker:
     HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'}
     def __init__(self, usernames: List[str]):
         self.to_check = usernames
+        #self.count = 0
 
     async def _check(self, session: aiohttp.ClientSession, username: str) -> None:     
         async with session.get('https://www.instagram.com/%s' % username) as response:
             try:
                 r = await response.text()
+
                 if response.status == 404:
                     print('%s[AVAILABLE] https://www.instagram.com/%s%s' % ('\u001b[32;1m', username, '\u001b[0m'))
                     write_file(username)
 
-
+                elif response.status == 200 and 'Login • Instagram' in r:
+                    print('[!] Failed to check username. Try again later', username)
+                    # if self.count == 50:
+                    #     print(r)
                 else:
                     print('%s[UNAVAILABLE] https://www.instagram.com/%s%s' % ('\u001b[31;1m', username, '\u001b[0m'))
 
+                #self.count += 1
                 #print(r)
+                #print(response.status)
             except Exception as e:
                 print('[ERROR] ' + e)                    
                     
