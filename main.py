@@ -53,7 +53,7 @@ class Checker:
             return task
 
 if __name__ == '__main__':
-    system('title Instagram Username Checker by Nightfall#2512')
+    system('title Instagram Username Checker by NightfallGT')
     system('cls')
     username_list = open_file() 
     checker = Checker(username_list)
